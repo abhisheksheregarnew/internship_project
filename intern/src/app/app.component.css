@@ -1,0 +1,12 @@
+
+
+.mat-card,.mat-expansion-panel{
+    margin: auto;
+    width:80%;
+    margin-top:1rem;
+    background-color: #d6d6d6
+}
+
+.mat-form-field,textarea{
+    width: 100%;
+}

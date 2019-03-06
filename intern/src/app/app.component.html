@@ -1,0 +1,43 @@
+
+<mat-toolbar color="primary">Find ALL Function</mat-toolbar>
+<mat-card >
+  <!--form for getting input-->
+    <form  #testform="ngForm"> 
+  <mat-form-field>
+    <textarea rows="9" matInput name="sentence" ngModel required placeholder="Enter a block of text" ></textarea>
+  </mat-form-field>
+<br>
+  <mat-form-field>
+      <input  ngModel required name="word" matInput placeholder="Enter word to be searched" >
+      
+  </mat-form-field><br><hr>
+  <button type="button" mat-raised-button (click)="test(testform)"color="accent" >Find</button>
+  
+ 
+</form>
+</mat-card>
+<!--for displaying output-->
+<mat-accordion  multi="true" *ngIf="matchsentence.length > 0">
+<mat-expansion-panel  *ngFor="let match of matchsentence">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{match.index}}
+    </mat-panel-title>
+    <mat-panel-description>
+    {{match.line}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+    
+  <table class=" table " border="2" >
+    <tr>
+      <td>line no</td>
+      <td>sentence</td>
+    </tr>
+    <tr>
+      <td>{{match.index}}</td>
+    <td>{{match.line}}</td>
+  </table>
+
+</mat-expansion-panel>
+</mat-accordion >
+<p *ngIf="matchsentence.length<=0">no match found</p>
